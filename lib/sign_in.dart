@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SignIn extends StatelessWidget {
-  const SignIn({super.key});
-
+  SignIn({super.key});
+  GlobalKey<FormState> passwordKey = GlobalKey();
+  GlobalKey<FormState> emailKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +50,7 @@ class SignIn extends StatelessWidget {
                 height: 28,
               ),
               TextFormField(
+                key: emailKey,
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.email_outlined),
                   hintText: "Your Email",
@@ -58,28 +60,43 @@ class SignIn extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   ),
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      borderSide: const BorderSide(color: Color(0xffEBF0FF))),
+                    borderRadius: BorderRadius.circular(5),
+                    borderSide: const BorderSide(
+                      color: Color(0xffEBF0FF),
+                    ),
+                  ),
                 ),
+                validator: (email) {
+                  if (email!.isEmpty) {
+                    return "Enter your Email to continue";
+                  }
+                },
               ),
               const SizedBox(
                 height: 8,
               ),
               TextFormField(
-                decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.lock_outline),
-                  hintText: "Password",
-                  hintStyle: const TextStyle(
-                    color: Color(0xff9098B1),
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
+                  key: passwordKey,
+                  decoration: InputDecoration(
+                    prefixIcon: const Icon(Icons.lock_outline),
+                    hintText: "Password",
+                    hintStyle: const TextStyle(
+                      color: Color(0xff9098B1),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(5),
+                      borderSide: const BorderSide(color: Color(0xffEBF0FF)),
+                    ),
                   ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(5),
-                    borderSide: const BorderSide(color: Color(0xffEBF0FF)),
-                  ),
-                ),
-              ),
+                  validator: (value) {
+                    if (value!.isEmpty || value.length < 8) {
+                      return "Password must be atleast 8 characters long ";
+                    } else {
+                      return null;
+                    }
+                  }),
               const SizedBox(
                 height: 16,
               ),
@@ -88,7 +105,9 @@ class SignIn extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.pushReplacementNamed(context, "HomePage");
+                    if (passwordKey.currentState!.validate()) {
+                      Navigator.pushReplacementNamed(context, "HomePage");
+                    }
                   },
                   child: const Text("Sign in"),
                 ),

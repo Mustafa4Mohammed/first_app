@@ -3,8 +3,102 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
+  HomePage({super.key});
+  List<Image> gridProductImage = [
+    Image.asset(
+      "assets/images/image Product(GP).png",
+    ),
+    Image.asset(
+      "assets/images/image Product(GP2).png",
+    ),
+    Image.asset(
+      "assets/images/image Product(GP3).png",
+    ),
+    Image.asset(
+      "assets/images/image Product(GP4).png",
+    ),
+  ];
+  List<Image> productImage = [
+    Image.asset('assets/images/image Productsh1.png'),
+    Image.asset('assets/images/image Productsh2.png'),
+    Image.asset('assets/images/image Productsh4.png'),
+  ];
+  List<Text> productName = [
+    const Text(
+      "FS - Nike Air Max 270 React...",
+      style: TextStyle(
+        color: Color(0xff223263),
+        fontWeight: FontWeight.w700,
+        fontSize: 12,
+      ),
+    ),
+    const Text(
+      "FS - QUILTED MAXI CROS...",
+      style: TextStyle(
+        color: Color(0xff223263),
+        fontWeight: FontWeight.w700,
+        fontSize: 12,
+      ),
+    ),
+    const Text(
+      "FS - Nike Air Max 270 React...",
+      style: TextStyle(
+        color: Color(0xff223263),
+        fontWeight: FontWeight.w700,
+        fontSize: 12,
+      ),
+    ),
+  ];
+  List<Image> categoryIcon = [
+    Image.asset('assets/images/shirtshirt.png'),
+    Image.asset('assets/images/dressdress.png'),
+    Image.asset('assets/images/man bagworkbag.png'),
+    Image.asset('assets/images/woman bagbag.png'),
+    Image.asset('assets/images/man shoesmshoe.png')
+  ];
+  List<Text> categoryName = [
+    const Text(
+      "Man Shirt",
+      style: TextStyle(
+        color: Color(0xff9098B1),
+        fontWeight: FontWeight.w400,
+        fontSize: 10,
+      ),
+    ),
+    const Text(
+      "Dress",
+      style: TextStyle(
+        color: Color(0xff9098B1),
+        fontWeight: FontWeight.w400,
+        fontSize: 10,
+      ),
+    ),
+    const Text(
+      """Man Work 
+Equipment""",
+      style: TextStyle(
+        color: Color(0xff9098B1),
+        fontWeight: FontWeight.w400,
+        fontSize: 10,
+      ),
+    ),
+    const Text(
+      "Woman Bag",
+      style: TextStyle(
+        color: Color(0xff9098B1),
+        fontWeight: FontWeight.w400,
+        fontSize: 10,
+      ),
+    ),
+    const Text(
+      "Man Shoes",
+      style: TextStyle(
+        color: Color(0xff9098B1),
+        fontWeight: FontWeight.w400,
+        fontSize: 10,
+      ),
+    )
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -223,56 +317,6 @@ class HomePage extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: 5,
                     itemBuilder: (context, index) {
-                      List<Image> categoryIcon = [
-                        Image.asset('assets/images/shirtshirt.png'),
-                        Image.asset('assets/images/dressdress.png'),
-                        Image.asset('assets/images/man bagworkbag.png'),
-                        Image.asset('assets/images/woman bagbag.png'),
-                        Image.asset('assets/images/man shoesmshoe.png')
-                      ];
-                      const List<Text> categoryName = [
-                        Text(
-                          "Man Shirt",
-                          style: TextStyle(
-                            color: Color(0xff9098B1),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 10,
-                          ),
-                        ),
-                        Text(
-                          "Dress",
-                          style: TextStyle(
-                            color: Color(0xff9098B1),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 10,
-                          ),
-                        ),
-                        Text(
-                          """Man Work 
-Equipment""",
-                          style: TextStyle(
-                            color: Color(0xff9098B1),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 10,
-                          ),
-                        ),
-                        Text(
-                          "Woman Bag",
-                          style: TextStyle(
-                            color: Color(0xff9098B1),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 10,
-                          ),
-                        ),
-                        Text(
-                          "Man Shoes",
-                          style: TextStyle(
-                            color: Color(0xff9098B1),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 10,
-                          ),
-                        )
-                      ];
                       return Container(
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         height: MediaQuery.of(context).size.height,
@@ -327,37 +371,6 @@ Equipment""",
                     scrollDirection: Axis.horizontal,
                     itemCount: 3,
                     itemBuilder: (context, index) {
-                      List<Image> productImage = [
-                        Image.asset('assets/images/image Productsh1.png'),
-                        Image.asset('assets/images/image Productsh2.png'),
-                        Image.asset('assets/images/image Productsh4.png'),
-                      ];
-                      const List<Text> productName = [
-                        Text(
-                          "FS - Nike Air Max 270 React...",
-                          style: TextStyle(
-                            color: Color(0xff223263),
-                            fontWeight: FontWeight.w700,
-                            fontSize: 12,
-                          ),
-                        ),
-                        Text(
-                          "FS - QUILTED MAXI CROS...",
-                          style: TextStyle(
-                            color: Color(0xff223263),
-                            fontWeight: FontWeight.w700,
-                            fontSize: 12,
-                          ),
-                        ),
-                        Text(
-                          "FS - Nike Air Max 270 React...",
-                          style: TextStyle(
-                            color: Color(0xff223263),
-                            fontWeight: FontWeight.w700,
-                            fontSize: 12,
-                          ),
-                        ),
-                      ];
                       return Container(
                         width: 141,
                         padding: const EdgeInsets.all(16),
@@ -465,21 +478,6 @@ Equipment""",
                   ),
                   itemCount: 4,
                   itemBuilder: ((context, index) {
-                    List<Image> gridProductImage = [
-                      Image.asset(
-                        "assets/images/image Product(GP).png",
-                      ),
-                      Image.asset(
-                        "assets/images/image Product(GP2).png",
-                      ),
-                      Image.asset(
-                        "assets/images/image Product(GP3).png",
-                      ),
-                      Image.asset(
-                        "assets/images/image Product(GP4).png",
-                      ),
-                    ];
-
                     return Container(
                       padding: const EdgeInsets.all(16),
                       height: 282,
